@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import "tailwindcss";
+@plugin './hero.ts';
+@source '../node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}';
+@custom-variant dark (&:is(.dark *));
+
+@layer base {
+  html {
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+}
+
+
+@keyframes draw {
+  from { stroke-dasharray: 0 500; }
+  to   { stroke-dasharray: 500 500; }
+}
+.animate-draw { animation: draw 12s linear infinite; stroke-dasharray: 500; }
+.animate-draw-delayed { animation: draw 15s linear infinite 3s; stroke-dasharray: 400; }
+
+/* index.css */
+.flip-word {
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+}
+/* Hide scrollbar but keep functionality */
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;     /* Firefox */
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;             /* Chrome, Safari, Opera */
+}
